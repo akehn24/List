@@ -53,7 +53,7 @@ In reality, I'm using my love of lists to practice some coding basics to keep my
    - __Issues__:
      - Unsure how hard it would be to implement a list whose keys are unique per value
 
-__As I get through writing this, I'm realizing this needs to be done differently. Yay design phase! 
+### As I get through writing this, I'm realizing this needs to be done differently. Yay design phase!
 1. List base class
    - Checklist subclass
 2. Inventory base class
