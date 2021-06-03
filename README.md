@@ -1,4 +1,4 @@
-# List 👩🏻‍💻
+# List Maker
 ## Implementation of an Evolving List
 
 I enjoy making lists. I very much enjoy making lists. Though it seems like a simple project, when told to do something I'm interested in... I chose lists.
