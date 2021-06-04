@@ -27,6 +27,7 @@ I use lists frequently in my day-to-day life and wanted to see if I could progra
 :heavy_check_mark: Figure out what's going on with importing files
 :x: Remove list items and delete list  
 :x: Write list to text file for saving  
+:x::warning: Figure out why TOC links aren't working
 
 <!--- 
 Emojis for the Task List:
