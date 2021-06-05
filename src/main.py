@@ -1,10 +1,4 @@
-# Standard Library Imports
 import time
-
-# Third Party Imports (if any...)
-
-# Local App Imports
-# import checklist as checklist
 from list_files import checklist
 
 
@@ -17,12 +11,13 @@ from list_files import checklist
 ################################################################
 
 ################################################################
-# Helper Functions
+# List Maker
+# Help the program get to the list class chosen by the user.
 ################################################################
 def list_maker(name, list_num):
     if list_num == "1":
         # noinspection PyUnresolvedReferences
-        checklist.checklist_driver(name)
+        checklist.create_checklist(name)
 
 
 ################################################################
