@@ -25,7 +25,7 @@ I use lists frequently in my day-to-day life and wanted to see if I could progra
 :heavy_check_mark: Create a simple list using data structures   
 :heavy_check_mark: Print basic list in nice format  
 :heavy_check_mark: Figure out what's going on with importing files  
-:x: Remove list items and delete list  
+:heavy_check_mark: Remove list items and delete list  
 :x: Write list to text file for saving  
 :x::warning: Figure out why TOC links aren't working
 
