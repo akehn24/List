@@ -111,9 +111,6 @@ def add_items(user_list, name):
 
 ######################################
 # Checklist Item Remover
-#   - WIP
-#   - TEST
-#   - CLEAN
 ######################################
 def remove_items(user_list, name):
     # print the list so the user knows what's on it
