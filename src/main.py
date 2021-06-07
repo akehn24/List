@@ -1,4 +1,5 @@
 import time
+import sys
 from list_files import checklist
 
 
@@ -14,10 +15,10 @@ from list_files import checklist
 # List Maker
 # Help the program get to the list class chosen by the user.
 ################################################################
-def list_maker(name, list_num):
+def list_maker(list_num):
     if list_num == "1":
         # noinspection PyUnresolvedReferences
-        checklist.create_checklist(name)
+        checklist.create_checklist()
 
 
 ################################################################
@@ -30,13 +31,12 @@ print("(type quit at any time to quit the app)\n")
 time.sleep(0.5)
 
 # take initial list info from the user
-list_name = input("Let's create a list... What would you like to call it? \n")
 list_type = input("\nType the number of the type of list you'd like to create: \n" +
                   "1 - Checklist\n" +
                   "\n More Coming Soon!\n")
 
 # creating the user's chosen list
-list_maker(list_name, list_type)
+list_maker(list_type)
 
 # for test
 print("\nAll finished.")
