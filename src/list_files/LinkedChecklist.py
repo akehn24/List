@@ -145,6 +145,11 @@ class LinkedChecklist:
                     print("- " + curr.value)
                     curr = curr.next_node
 
+    ############################################################
+    # Sorts the list by status
+    def sort_status(self):
+        return
+
 
 ################################################################
 # Testing !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
