@@ -26,8 +26,8 @@ I use lists frequently in my day-to-day life and wanted to see if I could progra
 :heavy_check_mark: Print basic list in nice format  
 :heavy_check_mark: Figure out what's going on with importing files  
 :heavy_check_mark: Remove list items and delete list  
-:heavy_check_mark: Implement a linked list for the Checklist
-:x: Integrate the linked list into the current Checklist code
+:heavy_check_mark: Implement a linked list for the Checklist  
+:x: Integrate the linked list into the current Checklist code  
 :x: Write list to text file for saving  
 :x::warning: Figure out why TOC links aren't working
 
