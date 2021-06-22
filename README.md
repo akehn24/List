@@ -1,7 +1,7 @@
 # List Maker
 ## Implementation of an Evolving List
 
-I use lists frequently in my day-to-day life and wanted to see if I could program an application that could make the types of lists I want. 
+I use lists frequently in my day-to-day life so I programmed an application that could create the types of lists I want.
 
 ## Table of Contents
 - [Project Status](https://github.com/akehn24/list-maker##project-status)
@@ -23,12 +23,13 @@ I use lists frequently in my day-to-day life and wanted to see if I could progra
 
 ### Task List:
 :heavy_check_mark: Create a simple list using data structures   
-:heavy_check_mark: Print basic list in nice format  
-:heavy_check_mark: Figure out what's going on with importing files  
-:heavy_check_mark: Remove list items and delete list  
-:heavy_check_mark: Implement a linked list for the Checklist  
+:heavy_check_mark: Fix import files bug
+
+:heavy_check_mark: Implement a linked list for the Checklist    
+:x: Check/Uncheck all items at once  
+:x: Sort items by checked/unchecked  
 :x: Integrate the linked list into the current Checklist code  
-:x: Write list to text file for saving  
+
 :x::warning: Figure out why TOC links aren't working
 
 <!--- 
@@ -41,14 +42,19 @@ BUGGED =    :warning:
 
 ### Future Tasks
 :x: Attempt to create an actual user interface  
-:x:  
-:x:  
+:x: Write list to text file for saving  
+:x: Inventory List  
+:x: Categorical List  
 
 ---
 ## Technologies
 - Visual Studio Code
 - Pycharm
 - Python
+
+## Data Structs and Algorithms
+- Python Lists
+- Linked List
 
 ---
 ## Bugs
@@ -63,7 +69,3 @@ BUGGED =    :warning:
 ---
 ## Demos
 Coming soon...
-
----
-## Sources
--    

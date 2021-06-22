@@ -2,19 +2,18 @@
 ## Checklist Class
    - Simple ToDo list - items sorted vertically
    - Unsorted
-   - Functions:
+   - Basic Functions:
       - Create + Name
       - Add item
       - Remove item
       - View list
       - Delete list
-   - Future features:
+   - Advanced Functions:
       - Save list
-      - Check items off without removing them (bool)
+      - Check items off without removing them
       - Check/Uncheck all items at once
       - Show checked/unchecked items visually
       - Sort list by checked/unchecked
-      - Move items around the list?
    - _Examples_:
      - To Do list / Chores list
      - List of ideas
@@ -34,13 +33,10 @@
 
 ---
 ## Categorical Class
-   - Key/Value list
-   - Like a Kanban Board - different categories hold tasks
-   - Unsorted, items are called up by value
-   - Non-unique keys, non-unique values
-   - "Moving" an item = changing the value
-   - Issues:
-     - Unsure how hard it would be to implement a list whose keys are unique per value
+   - List of Lists
+   - Like a set of Folders with items inside
+   - Sorted? by Category
+   - Moving items from Category to Category would mean removing them from one sublist and adding to another
    - _Examples_:
       - Kanban Board / Project Plan
       - Shopping list by grocery department
