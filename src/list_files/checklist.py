@@ -1,6 +1,6 @@
 import time
 import sys
-# import LinkedChecklist as link
+from list_files import LinkedChecklist as Link
 
 
 ################################################################
@@ -20,24 +20,33 @@ def checklist_driver(user_list, name):
     request = input("\nWhat would you like to do?\n" +
                     "1 - Print your list\n" +
                     "2 - Add more items\n" +
-                    "3 - Remove items\n" +
-                    "4 - Delete your list\n" +
-                    "5 - Make a new list\n" +
+                    "3 - Check off items\n" +
+                    "4 - Remove checked off items\n" +
+                    "5 - Delete your list\n" +
+                    "6 - Make a new list\n" +
                     "q - I'm done!\n")
 
     ######################################
     # User requests will be directed here:
     ######################################
-    # print the user's list
+    # Print your list
     if request == "1":
         print_checklist(user_list, name)
+    # Add more items
     elif request == "2":
         add_items(user_list, name)
+    # Check off items
     elif request == "3":
-        remove_items(user_list, name)
+        checkoff_items(user_list, name)
+    # Remove checked off items
     elif request == "4":
-        delete_list(user_list, name)
+        remove_checked(user_list, name)
+    # Delete your list
     elif request == "5":
+        delete_list(user_list, name)
+        name = None
+    # Make a new list
+    elif request == "6":
         # will hopefully be able to save these at some point
         confirm = input("\nThis will overwrite your current list. Proceed?\n" +
                         "1 - Go ahead\n" +
@@ -61,7 +70,7 @@ def checklist_driver(user_list, name):
 ######################################
 def create_checklist():
     name = input("Let's create a Checklist... What would you like to call it? \n")
-    user_list = []
+    user_list = Link.LinkedChecklist()
     add_items(user_list, name)
 
 
@@ -69,9 +78,12 @@ def create_checklist():
 # Checklist Printer
 ######################################
 def print_checklist(user_list, name):
+    if name is None:
+        print("You don't have a list. Choose option 5 to make a new one!")
+        return
+
     print("\n" + name + ":")
-    for item in user_list:
-        print("- ", item)
+    user_list.print()
     print("\n")
     time.sleep(0.5)
 
@@ -85,7 +97,7 @@ def delete_list(user_list, name):
                     "2 - No! Please take me back.\n")
 
     if confirm == "1":
-        user_list.clear()
+        user_list.delete_list()
         print("Your list has been deleted.")
         time.sleep(0.5)
     elif confirm == "2":
@@ -101,33 +113,60 @@ def delete_list(user_list, name):
 # Checklist Item Adder
 ######################################
 def add_items(user_list, name):
+    if name is None:
+        print("You don't have a list. Choose option 5 to make a new one!")
+        return
+
     print("\nHit Enter after each new item and type done when you're finished.")
     item = input()
     while item != "done":
-        user_list.append(item)
+        user_list.insert(item)
         item = input()
     # return user_list and name to the driver
     checklist_driver(user_list, name)
 
 
 ######################################
-# Checklist Item Remover
+# Checklist Item Checker
 ######################################
-def remove_items(user_list, name):
+def checkoff_items(user_list, name):
+    if name is None:
+        print("You don't have a list. Choose option 5 to make a new one!")
+        return
+
     # print the list so the user knows what's on it
-    print("\nWhich item would you like to remove?")
+    print("\nWhich item would you like to check off?")
     print_checklist(user_list, name)
 
     item = input()
-    user_list.remove(item)
-    print(item + " removed.\n")
+    user_list.change_status(item)
+    print(item + " checked off.\n")
 
-    # ask if they want more removed or return
-    more = input("\nAre you done removing items?\n" +
+    # ask if they want more checked off or return
+    more = input("\nAre you done checking off items?\n" +
                  "1 - Yes\n" +
                  "2 - No\n")
     if more == "1":
         print("Sounds good!\n")
         time.sleep(0.5)
     elif more == "2":
-        remove_items(user_list, name)
+        checkoff_items(user_list, name)
+
+
+######################################
+# Checklist Item Checker
+######################################
+def remove_checked(user_list, name):
+    if name is None:
+        print("You don't have a list. Choose option 5 to make a new one!")
+        return
+
+    confirm = input("\nRemoving checked off items will delete them from your list. Do you want to continue?\n"
+                    "1 - Yes\n" +
+                    "2 - No\n")
+    if confirm == "1":
+        user_list.delete_all_checked()
+        print("Your checked off items have been removed!\n")
+    elif confirm == "2":
+        print("Ok!")
+        time.sleep(0.5)
