@@ -5,7 +5,7 @@
 ################################################################
 
 ################################################################
-# Node Class
+# Node Class:
 #   next_node   the node that comes after this one
 #   value       the value the node is assigned
 #   status      True = checked  /  False = not checked
@@ -18,9 +18,16 @@ class Node:
 
 
 ################################################################
-# Linked List Class
-#   insert
-#   delete
+# Linked List Class:
+#   insert                  inserts a node at the end of the list
+#   remove_head             removes the head node only
+#   delete                  deletes the node with the given value
+#   delete_all_checked      deletes all checked nodes
+#   delete_list             deletes the entire list
+#   get_value               returns node with given value
+#   change_status           checks/unchecks a node
+#   size                    returns the size of the list
+#   print                   prints the list
 ################################################################
 class LinkedChecklist:
     ############################################################
@@ -56,7 +63,7 @@ class LinkedChecklist:
 
     ############################################################
     # Deletes the node of the given value
-    def delete(self, value):
+    def delete_node(self, value):
         curr = self.head
         prev = None
 
@@ -76,7 +83,7 @@ class LinkedChecklist:
 
     ############################################################
     # Deletes all nodes that are "checked" off - status = True
-    def delete_checked(self):
+    def delete_all_checked(self):
         # delete head
         if self.head.status:
             self.head = self.head.next_node
@@ -91,6 +98,14 @@ class LinkedChecklist:
             else:
                 prev = curr
                 curr = curr.next_node
+
+    ############################################################
+    # Deletes the entire list
+    def delete_list(self):
+        while self.head is not None:
+            curr = self.head
+            self.head = self.head.next_node
+            curr = None
 
     ############################################################
     # Returns the Node with the given value
@@ -145,12 +160,7 @@ class LinkedChecklist:
                     print("- " + curr.value)
                     curr = curr.next_node
 
-    ############################################################
-    # Sorts the list by status
-    def sort_status(self):
-        return
-
-
+'''
 ################################################################
 # Testing !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ################################################################
@@ -169,11 +179,11 @@ print("Size is", link.size())
 print("\n")
 
 print("--Delete Test--")
-'''link.delete("1")
+link.delete_node("1")
 link.print()
 print("Size is", link.size())
-print("\n")'''
-link.delete("6")
+print("\n")
+link.delete_node("6")
 link.print()
 print("Size is", link.size())
 print("\n")
@@ -183,7 +193,8 @@ link.change_status("1")
 link.change_status("5")
 link.print()
 print("\n")
-link.delete_checked()
+link.delete_all_checked()
 link.print()
 print("Size is", link.size())
 print("\n")
+'''
