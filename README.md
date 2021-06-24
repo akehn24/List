@@ -16,20 +16,16 @@ I use lists frequently in my day-to-day life so I programmed an application that
 ---
 ## Project Status :green_circle:
 ### Goals
-- Use multiple styles of data structures to create lists
+- Use multiple styles of data structures to create usable lists
 - Read/Write to text files to save list data
 - Practice taking user input - terminal for now, GUI later
 - Create a navigatable menu for a user to input data
 
 ### Task List:
 :heavy_check_mark: Create a simple list using data structures   
-:heavy_check_mark: Fix import files bug
-
-:heavy_check_mark: Implement a linked list for the Checklist    
-:x: Check/Uncheck all items at once  
-:x: Sort items by checked/unchecked  
-:x: Integrate the linked list into the current Checklist code  
-
+:heavy_check_mark: Fix import files bug  
+:heavy_check_mark: Implement a linked list for the Checklist  
+:heavy_check_mark: Integrate the linked list into the current Checklist code  
 :x::warning: Figure out why TOC links aren't working
 
 <!--- 
@@ -46,25 +42,33 @@ BUGGED =    :warning:
 :x: Inventory List  
 :x: Categorical List  
 
+### Feature Creep
+- Checklist:
+   - :x: Check/Uncheck all items at once
+   - :x: Sort items by checked/unchecked
+
 ---
 ## Technologies
 - Visual Studio Code
 - Pycharm
 - Python
 
-## Data Structs and Algorithms
-- Python Lists
+## Knowledge Used
+- Object Oriented programming
+- Classes and Objects
+- Python List
 - Linked List
 
 ---
 ## Bugs
 - Importing a file:
-   - Pylance has issues with importing local files. [Info here](https://github.com/microsoft/pylance-release/blob/main/TROUBLESHOOTING.md#unresolved-import-warnings)
+   - Pylance has issues with importing local files. [Info here.](https://github.com/microsoft/pylance-release/blob/main/TROUBLESHOOTING.md#unresolved-import-warnings)
    - Tried their fix of adding the directory path to the setting.json file - did not seem to work
    - Found a workaround to tell Pylance to ignore the line, but the import does not work this way.
    - Switching to Pycharm to see if the import will work there (it does).
 - Pycharm bug - cannot find reference 'function_name' in '-init-.py'
    - There are apparently a few fixes, but putting '# noinspection PyUnresolvedReferences' on the line above the ref tells Pycharm to not worry about it.
+   - Had this issue a second time trying to import the linked list. Adding -init-.py files into source code files worked.
 
 ---
 ## Demos
