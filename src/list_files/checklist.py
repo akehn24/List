@@ -4,8 +4,10 @@ from list_files import LinkedChecklist as Link
 
 
 ################################################################
-# Checklist
 # Checklist Class
+#
+# Allows the user to create a list where items can either be
+# unchecked (needs to be completed) or checked off (completed).
 #
 # Imports:
 #   time    allows the program to pause for ease of use
@@ -53,10 +55,7 @@ def checklist_driver(user_list, name):
                         "2 - No please!\n")
         if confirm == "1":
             create_checklist()
-    elif request == "q":
-        sys.exit()
-    elif request == "quit":
-        # the option given at the beginning of the program
+    elif request == "q" or request == "quit":
         sys.exit()
     else:  # user put in a num not on the list
         print("Sorry, that number isn't on the list. Try again?\n")
