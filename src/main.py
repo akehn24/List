@@ -1,6 +1,7 @@
 import time
 import sys
 from list_files import checklist
+from list_files import inventorylist as inventory
 
 
 ################################################################
@@ -19,6 +20,8 @@ def list_maker(list_num):
     if list_num == "1":
         # noinspection PyUnresolvedReferences
         checklist.create_checklist()
+    elif list_num == "2":
+        inventory.create_inventory()
 
 
 ################################################################
@@ -33,6 +36,7 @@ time.sleep(0.5)
 # take initial list info from the user
 list_type = input("\nType the number of the type of list you'd like to create: \n" +
                   "1 - Checklist\n" +
+                  "2 - Inventory\n"
                   "\n More Coming Soon!\n")
 
 # creating the user's chosen list

@@ -30,6 +30,14 @@
          - Books by author (titles would need to be unique)
          - Movies by genre
          - Items with numbers associated with them
+   - Notes:
+      - May use a built-in data struct for basic inventory and create a class for character sheets
+      - data class - built-in data struct class helper, takes care of the weird stuff
+      - dict would work also
+   - Key : Value
+      - Movie Title : Genre
+      - Book Title  : Author
+      - Item        : Quantity
 
 ---
 ## Categorical Class

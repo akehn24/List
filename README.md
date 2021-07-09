@@ -26,7 +26,9 @@ I use lists frequently in my day-to-day life so I programmed an application that
 :heavy_check_mark: Fix import files bug  
 :heavy_check_mark: Implement a linked list for the Checklist  
 :heavy_check_mark: Integrate the linked list into the current Checklist code  
-:x::warning: Figure out why TOC links aren't working
+:heavy_check_mark: Basic Inventory List  
+:x: Decide whether or not to make Movie / Book lists
+:x::warning: Figure out why TOC links aren't working (I'll do this eventually...)
 
 <!--- 
 Emojis for the Task List:
@@ -39,7 +41,7 @@ BUGGED =    :warning:
 ### Future Tasks
 :x: Attempt to create an actual user interface  
 :x: Write list to text file for saving  
-:x: Inventory List  
+:x: Character Sheet Class (possibly one for DnD and one for gen use)
 :x: Categorical List  
 
 ### Feature Creep
