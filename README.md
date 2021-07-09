@@ -60,6 +60,12 @@ BUGGED =    :warning:
 - Classes and Objects
 - Python List
 - Linked List
+- Python Dictionaries
+
+---
+## Design
+### Checklist
+### 
 
 ---
 ## Bugs
