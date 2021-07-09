@@ -1,7 +1,7 @@
 import time
 import sys
-from list_files import checklist
-from list_files import inventorylist as inventory
+from list_files import checklist_driver as checklist
+from list_files import inventory_driver as inventory
 
 
 ################################################################
@@ -22,6 +22,8 @@ def list_maker(list_num):
         checklist.create_checklist()
     elif list_num == "2":
         inventory.create_inventory()
+    elif list_num == "q" or list_num == "quit":
+        sys.exit()
 
 
 ################################################################
