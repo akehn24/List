@@ -3,14 +3,13 @@ import sys
 from list_files import inventory_list as inventlist
 
 ################################################################
-# Inventory
+# Movie Inventory List
 #
 # Driver that utilizes the Inventory List file to create a
-# general inventory list for the user. Typically used to store items
-# and their quantities or values.
+# list of movies and their genres for the user.
 #
-# Item  - key
-# Value - value
+# Movie  - key
+# Genre  - value
 #
 # Imports:
 #   time            allows the program to pause for ease of use
@@ -20,17 +19,18 @@ from list_files import inventory_list as inventlist
 
 
 ######################################
-# Inventory Driver
+# Movie Driver
 ######################################
-def inventory_driver(user_list, name):
+def movie_driver(user_list):
     # find out what the user wants to do with their list
     request = input("\nWhat would you like to do?\n" +
-                    "1 - Print your inventory\n" +
-                    "2 - Add new items\n" +
-                    "3 - Remove an existing item\n" +
-                    "4 - Change an item's value\n" +
-                    "5 - Delete your inventory\n" +
-                    "6 - Make a new inventory list\n" +
+                    "1 - Print your movie list\n" +
+                    "2 - Add new movie\n" +
+                    "3 - Remove an existing movie\n" +
+                    "4 - Change a movie's genre\n" +
+                    "5 - Show all movies of a genre\n" +
+                    "6 - Delete your movie list\n" +
+                    "7 - Make a new movie list\n" +
                     "q - I'm done!\n")
 
     ######################################
@@ -38,84 +38,86 @@ def inventory_driver(user_list, name):
     ######################################
     # Print list
     if request == "1":
-        print_inventory(user_list, name)
-    # Add new items
+        print_movielist(user_list)
+    # Add new movie
     elif request == "2":
-        add_items(user_list, name)
-    # Remove an existing item
+        add_movies(user_list)
+    # Remove an existing movie
     elif request == "3":
-        remove_item(user_list, name)
-    # Change an item's value
+        remove_movie(user_list)
+    # Change movie's genre
     elif request == "4":
-        set_value(user_list, name)
-    # Delete list
+        set_genre(user_list)
+    # Show all movies of genre
     elif request == "5":
-        delete_list(user_list, name)
-        name = None
-    # Make new list
+        movies_by_genre(user_list)
+    # Delete list
     elif request == "6":
-        confirm = input("\nThis will overwrite your current list. Proceed?\n" +
+        delete_movielist(user_list)
+    # Make new list
+    elif request == "7":
+        confirm = input("\nThis will overwrite your current movie list. Proceed?\n" +
                         "1 - Go ahead\n" +
                         "2 - No please!\n")
         if confirm == "1":
-            create_inventory()
+            create_movielist()
     elif request == "q" or request == "quit":
         sys.exit()
     else:  # user put in a num not on the list
         print("\nSorry, that number isn't on the list. Try again?\n")
-        inventory_driver(user_list, name)
+        movie_driver(user_list)
 
-    inventory_driver(user_list, name)
+    movie_driver(user_list)
 
 
 ######################################
 # Inventory Constructor
 ######################################
-def create_inventory():
-    name = input("\nLet's create an Inventory List... What would you like to call it? \n")
+def create_movielist():
+    print("\nLet's create a Movie List!\n")
     user_list = inventlist.create_list()
-    add_items(user_list, name)
+    add_movies(user_list)
 
 
 ######################################
-# Inventory Printer
+# Movie List Printer
 ######################################
-def print_inventory(user_list, name):
-    if name is None:
+def print_movielist(user_list):
+    if user_list:
+        print("\n")
+        inventlist.print_list(user_list)
+        print("\n")
+        time.sleep(0.5)
+    else:
         print("You don't currently have a list.")
         return
 
-    print("\n" + name + ":")
-    inventlist.print_list(user_list)
-    print("\n")
-    time.sleep(0.5)
-
 
 ######################################
-# Item Deleter
+# Movie Deleter
 ######################################
-def remove_item(user_list, name):
-    print("\nWhich item would you like to remove?")
-    item = input()
-    user_list = inventlist.remove_item(user_list, item)
+def remove_movie(user_list):
+    print("\nWhich movie would you like to remove?")
+    movie = input()
+    user_list = inventlist.remove_item(user_list, movie)
     time.sleep(0.5)
-    print("\nRemoved " + item + " from your " + name + " list.")
+    print("\nRemoved " + movie + " from your movie list.")
 
     # return the updated list to the Driver
-    inventory_driver(user_list, name)
+    movie_driver(user_list)
 
 
 ######################################
-# Inventory Deleter
+# Movie List Deleter
 ######################################
-def delete_list(user_list, name):
+def delete_movielist(user_list):
     confirm = input("\nAre you sure you want to delete your entire list?\n" +
                     "1 - Yes! I'm done with it.\n" +
                     "2 - No! Please take me back.\n")
 
     if confirm == "1":
         inventlist.delete_list(user_list)
-        print("\nYour list has been deleted.")
+        print("\nYour movie list has been deleted.")
         time.sleep(0.5)
     elif confirm == "2":
         print("Ok!")
@@ -123,20 +125,17 @@ def delete_list(user_list, name):
     else:  # allows the user to try again
         print("That isn't an option, try again?\n")
         time.sleep(0.5)
-        delete_list(user_list, name)
+        delete_movielist(user_list)
 
 
 ######################################
-# Inventory Item Adder
+# Movie Adder
 ######################################
-def add_items(user_list, name):
-    if name is None:
-        print("You don't currently have a list.")
-        return
+def add_movies(user_list):
+    print("\nType each movie you would like to add with its genre separated by a comma.\n" +
+          "For example: Hereditary, horror\n" +
+          "Hit Enter after each movie and its genre and type done when you're finished.\n")
 
-    print("\nType each item you would like to add with its value separated by a comma.\n" +
-          "For example: Fish, 20\n" +
-          "Hit Enter after each item and its value and type done when you're finished.")
     # take in user's input in format: "key, value"
     key_val = input()
 
@@ -147,22 +146,39 @@ def add_items(user_list, name):
             user_list = inventlist.add_item(user_list, key_val)
             key_val = input()
 
+
     # return the updated list to the Driver
-    inventory_driver(user_list, name)
+    movie_driver(user_list)
 
 
 ######################################
-# Inventory Value Setter
+# Genre Setter
 ######################################
-def set_value(user_list, name):
-    print_inventory(user_list, name)
-    print("Which item's value would you like to change?")
-    key = input()
+def set_genre(user_list):
+    print_movielist(user_list)
+    print("Which movie's genre would you like to change?")
+    movie = input()
     print("What is the new value you'd like it to have?")
-    val = input()
+    genre = input()
 
-    user_list = inventlist.set_value(user_list, key, val)
-    print("\nThe item " + key + " now has the value " + val + ".")
+    user_list = inventlist.set_value(user_list, movie, genre)
+    print("\n" + movie + " is now in the " + genre + " genre.")
 
     # return the updated list to the Driver
-    inventory_driver(user_list, name)
+    movie_driver(user_list)
+
+
+######################################
+# Print Movies by Genre
+######################################
+def movies_by_genre(user_list):
+    print("\nWhich genre would you like to see?")
+    genre = input()
+
+    if genre == "q" or genre == "quit":
+        sys.exit()
+    if genre in user_list.values():
+        print("\n" + genre + ":\n")
+        inventlist.keys_by_value(user_list, genre)
+    else:
+        print("There are no movies with this genre.")

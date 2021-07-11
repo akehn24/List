@@ -72,22 +72,12 @@ def delete_list(user_list):
 ######################################
 def keys_by_value(user_list, val):
     # take list, make new one? add in those keys, print
-    return
+    # temp dict to store the movies with this genre
+    val_list = {}
+    # loop through, add movies with this genre to the temp list
+    for key, value in user_list.items():
+        curr_value = value
+        if curr_value is val:
+            val_list[key] = value
 
-'''
-######################################
-# Print Movies by Genre
-# Used to find keys by value
-######################################
-def print_by_genre():
-    print("\nWhich genre would you like to see?")
-    genre = input()
-    
-    if genre == "q" or genre == "quit":
-        sys.exit()
-    if genre in user_list.values():
-        print(\ngenre + ":\n")
-        inventlist.keys_by_value(user_list, genre)
-    else:
-        print("Sorry! There are no movies in the list with that genre.)
-'''
+    print_list(val_list)

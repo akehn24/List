@@ -2,6 +2,7 @@ import time
 import sys
 from list_files import checklist_driver as checklist
 from list_files import inventory_driver as inventory
+from list_files import movie_driver as movie
 
 
 ################################################################
@@ -22,6 +23,8 @@ def list_maker(list_num):
         checklist.create_checklist()
     elif list_num == "2":
         inventory.create_inventory()
+    elif list_num == "3":
+        movie.create_movielist()
     elif list_num == "q" or list_num == "quit":
         sys.exit()
 
@@ -38,7 +41,8 @@ time.sleep(0.5)
 # take initial list info from the user
 list_type = input("\nType the number of the type of list you'd like to create: \n" +
                   "1 - Checklist\n" +
-                  "2 - Inventory\n"
+                  "2 - Inventory\n" +
+                  "3 - Movie List\n" +
                   "\n More Coming Soon!\n")
 
 # creating the user's chosen list
