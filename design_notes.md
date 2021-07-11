@@ -25,25 +25,28 @@
    - Sorted
    - Unique keys, non-unique values
    - _Examples_:
+      - Inventory tracking
       - Character Sheet (for games like D&D)
       - !Things! Owned list / Inventory list
          - Books by author (titles would need to be unique)
          - Movies by genre
          - Items with numbers associated with them
+         - Invite list with yes/no/maybe per guest
    - Notes:
       - May use a built-in data struct for basic inventory and create a class for character sheets
       - data class - built-in data struct class helper, takes care of the weird stuff
       - dict would work also
    - Key : Value
+      - Item        : Value
       - Movie Title : Genre
       - Book Title  : Author
-      - Item        : Quantity
 
 ---
 ## Categorical Class
    - List of Lists
    - Like a set of Folders with items inside
-   - Sorted? by Category
+   - Sorted?
+      - By Category -> By Insertion
    - Moving items from Category to Category would mean removing them from one sublist and adding to another
    - _Examples_:
       - Kanban Board / Project Plan

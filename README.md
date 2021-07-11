@@ -65,7 +65,14 @@ BUGGED =    :warning:
 ---
 ## Design
 ### Checklist
-### 
+- Implemented a Linked List Class to handle the data and functionality of the list.
+- A driver file directs the user through list manipulation by using the functionality of the Linked List Class. 
+### Inventory
+- A general Inventory list file handles the data and functionality of the Inventory drivers.
+- I decided to implement each type of Inventory list driver separately since the UI dialogue would be different for each of them.
+- Planning on implementing a Character Sheet Class and driver separately to handle this specialized type of list.
+### Categorical
+-
 
 ---
 ## Bugs

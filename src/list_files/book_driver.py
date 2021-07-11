@@ -3,14 +3,14 @@ import sys
 from list_files import inventory_list as inventlist
 
 ################################################################
-# Movie Inventory List
+# Book Inventory List
 #
 # Driver that utilizes the Inventory List file to create a
-# list of movies and their genres for the user. Currently only
-# # supports unique movie titles.
+# list of books and their authors for the user. Currently only
+# supports unique book titles.
 #
-# Movie  - key
-# Genre  - value
+# Book  - key
+# Author  - value
 #
 # Imports:
 #   time            allows the program to pause for ease of use
@@ -20,18 +20,18 @@ from list_files import inventory_list as inventlist
 
 
 ######################################
-# Movie Driver
+# Book Driver
 ######################################
-def movie_driver(user_list):
+def book_driver(user_list):
     # find out what the user wants to do with their list
     request = input("\nWhat would you like to do?\n" +
-                    "1 - Print your movie list\n" +
-                    "2 - Add new movie\n" +
-                    "3 - Remove an existing movie\n" +
-                    "4 - Change a movie's genre\n" +
-                    "5 - Show all movies of a genre\n" +
-                    "6 - Delete your movie list\n" +
-                    "7 - Make a new movie list\n" +
+                    "1 - Print your book list\n" +
+                    "2 - Add new book\n" +
+                    "3 - Remove an existing book\n" +
+                    "4 - Update a book's author\n" +
+                    "5 - Show all books from an author\n" +
+                    "6 - Delete your book list\n" +
+                    "7 - Make a new book list\n" +
                     "q - I'm done!\n")
 
     ######################################
@@ -39,51 +39,51 @@ def movie_driver(user_list):
     ######################################
     # Print list
     if request == "1":
-        print_movielist(user_list)
-    # Add new movie
+        print_booklist(user_list)
+    # Add new book
     elif request == "2":
-        add_movies(user_list)
-    # Remove an existing movie
+        add_books(user_list)
+    # Remove an existing book
     elif request == "3":
-        remove_movie(user_list)
-    # Change movie's genre
+        remove_book(user_list)
+    # Update a book's author
     elif request == "4":
-        set_genre(user_list)
-    # Show all movies of genre
+        set_author(user_list)
+    # Show all books from an author
     elif request == "5":
-        movies_by_genre(user_list)
+        books_by_author(user_list)
     # Delete list
     elif request == "6":
-        delete_movielist(user_list)
+        delete_booklist(user_list)
     # Make new list
     elif request == "7":
-        confirm = input("\nThis will overwrite your current movie list. Proceed?\n" +
+        confirm = input("\nThis will overwrite your current book list. Proceed?\n" +
                         "1 - Go ahead\n" +
                         "2 - No please!\n")
         if confirm == "1":
-            create_movielist()
+            create_booklist()
     elif request == "q" or request == "quit":
         sys.exit()
     else:  # user put in a num not on the list
         print("\nSorry, that number isn't on the list. Try again?\n")
-        movie_driver(user_list)
+        book_driver(user_list)
 
-    movie_driver(user_list)
+    book_driver(user_list)
 
 
 ######################################
-# Movie List Constructor
+# Book List Constructor
 ######################################
-def create_movielist():
-    print("\nLet's create a Movie List!\n")
+def create_booklist():
+    print("\nLet's create a Book List!\n")
     user_list = inventlist.create_list()
-    add_movies(user_list)
+    add_books(user_list)
 
 
 ######################################
-# Movie List Printer
+# Book List Printer
 ######################################
-def print_movielist(user_list):
+def print_booklist(user_list):
     if user_list:
         print("\n")
         inventlist.print_list(user_list)
@@ -95,30 +95,30 @@ def print_movielist(user_list):
 
 
 ######################################
-# Movie Deleter
+# Book Deleter
 ######################################
-def remove_movie(user_list):
-    print("\nWhich movie would you like to remove?")
-    movie = input()
-    user_list = inventlist.remove_item(user_list, movie)
+def remove_book(user_list):
+    print("\nWhich book would you like to remove?")
+    book = input()
+    user_list = inventlist.remove_item(user_list, book)
     time.sleep(0.5)
-    print("\nRemoved " + movie + " from your movie list.")
+    print("\nRemoved " + book + " from your movie list.")
 
     # return the updated list to the Driver
-    movie_driver(user_list)
+    book_driver(user_list)
 
 
 ######################################
-# Movie List Deleter
+# Book List Deleter
 ######################################
-def delete_movielist(user_list):
+def delete_booklist(user_list):
     confirm = input("\nAre you sure you want to delete your entire list?\n" +
                     "1 - Yes! I'm done with it.\n" +
                     "2 - No! Please take me back.\n")
 
     if confirm == "1":
         inventlist.delete_list(user_list)
-        print("\nYour movie list has been deleted.")
+        print("\nYour book list has been deleted.")
         time.sleep(0.5)
     elif confirm == "2":
         print("Ok!")
@@ -126,16 +126,16 @@ def delete_movielist(user_list):
     else:  # allows the user to try again
         print("That isn't an option, try again?\n")
         time.sleep(0.5)
-        delete_movielist(user_list)
+        delete_booklist(user_list)
 
 
 ######################################
-# Movie Adder
+# Book Adder
 ######################################
-def add_movies(user_list):
-    print("\nType each movie you would like to add with its genre separated by a comma.\n" +
-          "For example: Hereditary, horror\n" +
-          "Hit Enter after each movie and its genre and type done when you're finished.\n")
+def add_books(user_list):
+    print("\nType each book you would like to add with its author separated by a comma.\n" +
+          "For example: The Hobbit, Tolkien\n" +
+          "Hit Enter after each book and its author and type done when you're finished.\n")
 
     # take in user's input in format: "key, value"
     key_val = input()
@@ -148,37 +148,37 @@ def add_movies(user_list):
             key_val = input()
 
     # return the updated list to the Driver
-    movie_driver(user_list)
+    book_driver(user_list)
 
 
 ######################################
 # Genre Setter
 ######################################
-def set_genre(user_list):
-    print_movielist(user_list)
-    print("Which movie's genre would you like to change?")
-    movie = input()
-    print("What is the new genre you'd like it to have?")
-    genre = input()
+def set_author(user_list):
+    print_booklist(user_list)
+    print("Which book's author would you like to change?")
+    book = input()
+    print("Which author would you like to assign to this book?")
+    author = input()
 
-    user_list = inventlist.set_value(user_list, movie, genre)
-    print("\n" + movie + " is now in the " + genre + " genre.")
+    user_list = inventlist.set_value(user_list, book, author)
+    print("\n" + author + " is now the author of " + book + ".")
 
     # return the updated list to the Driver
-    movie_driver(user_list)
+    book_driver(user_list)
 
 
 ######################################
 # Print Movies by Genre
 ######################################
-def movies_by_genre(user_list):
-    print("\nWhich genre would you like to see?")
-    genre = input()
+def books_by_author(user_list):
+    print("\nWhich author's books would you like to see?")
+    author = input()
 
-    if genre == "q" or genre == "quit":
+    if author == "q" or author == "quit":
         sys.exit()
-    if genre in user_list.values():
-        print("\n" + genre + ":\n")
-        inventlist.keys_by_value(user_list, genre)
+    if author in user_list.values():
+        print("\nBooks by " + author + ":\n")
+        inventlist.keys_by_value(user_list, author)
     else:
-        print("There are no movies with this genre.")
+        print("There are no books by that author in your list.")
