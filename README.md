@@ -11,7 +11,7 @@ I use lists frequently in my day-to-day life so I programmed an application that
 - [Technologies](https://github.com/akehn24/list-maker##technologies)
 - [Bugs](https://github.com/akehn24/list-maker##bugs)
 - [Demos](https://github.com/akehn24/list-maker##demos)
-- [Sources](https://github.com/akehn24/list-maker##sources)
+- [Sources](#sources)
 
 ---
 ## Project Status :green_circle:
