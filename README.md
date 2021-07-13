@@ -4,7 +4,7 @@
 I use lists frequently in my day-to-day life so I programmed an application that could create the types of lists I want.
 
 ## Table of Contents
-- [Project Status](https://github.com/akehn24/list-maker##project-status)
+- [Project Status](#project-status)
    - [Goals](https://github.com/akehn24/list-maker###goals)
    - [Task List](https://github.com/akehn24/list-maker###task-list)
    - [Future Tasks](https://github.com/akehn24/list-maker###)
