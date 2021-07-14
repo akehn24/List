@@ -20,6 +20,7 @@ I use lists frequently in my day-to-day life so I programmed an application that
 - Read/Write to text files to save list data
 - Practice taking user input - terminal for now, GUI later
 - Create a navigatable menu for a user to input data
+- Keep everything streamlined and easily understandable for the user
 
 ### Task List:
 :heavy_check_mark: Create a simple list using data structures   
@@ -30,6 +31,8 @@ I use lists frequently in my day-to-day life so I programmed an application that
 :heavy_check_mark: Movie / Book Inventory Lists  
 :heavy_check_mark: Fix TOC Links (woohoo!)  
 :recycle: Character Sheet Class  
+:x: Categorical List Class  
+:x: Categorical List driver
 
 <!--- 
 Emojis for the Task List:
@@ -39,11 +42,9 @@ WIP =       :recycle:
 BUGGED =    :warning:
  --->
 
-### Future Tasks
+### Future Tasks  
 :x: Attempt to create an actual user interface  
 :x: Write lists to text files for saving  
-:x: Character Sheet List (possibly one for DnD and one for gen use)
-:x: Categorical List  
 
 ### Feature Creep
 - Checklist:
