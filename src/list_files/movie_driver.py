@@ -1,6 +1,6 @@
 import time
 import sys
-from list_files import inventory_list as inventlist
+from list_files import InventoryList as InventList
 
 ################################################################
 # Movie Inventory List
@@ -76,7 +76,7 @@ def movie_driver(user_list):
 ######################################
 def create_movielist():
     print("\nLet's create a Movie List!\n")
-    user_list = inventlist.create_list()
+    user_list = InventList.InventoryList()
     add_movies(user_list)
 
 
@@ -84,23 +84,21 @@ def create_movielist():
 # Movie List Printer
 ######################################
 def print_movielist(user_list):
-    if user_list:
-        print("\n")
-        inventlist.print_list(user_list)
-        print("\n")
-        time.sleep(0.5)
-    else:
-        print("You don't currently have a list.")
-        return
+    print("\n")
+    user_list.print_list()
+    print("\n")
+    time.sleep(0.5)
 
 
 ######################################
 # Movie Deleter
 ######################################
 def remove_movie(user_list):
+    print("\n")
+    print_movielist(user_list)
     print("\nWhich movie would you like to remove?")
     movie = input()
-    user_list = inventlist.remove_item(user_list, movie)
+    user_list.remove_item(movie)
     time.sleep(0.5)
     print("\nRemoved " + movie + " from your movie list.")
 
@@ -117,7 +115,7 @@ def delete_movielist(user_list):
                     "2 - No! Please take me back.\n")
 
     if confirm == "1":
-        inventlist.delete_list(user_list)
+        user_list.delete_list()
         print("\nYour movie list has been deleted.")
         time.sleep(0.5)
     elif confirm == "2":
@@ -135,7 +133,7 @@ def delete_movielist(user_list):
 def add_movies(user_list):
     print("\nType each movie you would like to add with its genre separated by a comma.\n" +
           "For example: Hereditary, horror\n" +
-          "Hit Enter after each movie and its genre and type done when you're finished.\n")
+          "Hit Enter after each movie and its genre and type done when you're finished.")
 
     # take in user's input in format: "key, value"
     key_val = input()
@@ -144,7 +142,7 @@ def add_movies(user_list):
         if key_val == "q" or key_val == "quit":
             sys.exit()
         else:
-            user_list = inventlist.add_item(user_list, key_val)
+            user_list.add_item(key_val)
             key_val = input()
 
     # return the updated list to the Driver
@@ -161,7 +159,7 @@ def set_genre(user_list):
     print("What is the new genre you'd like it to have?")
     genre = input()
 
-    user_list = inventlist.set_value(user_list, movie, genre)
+    user_list.set_value(movie, genre)
     print("\n" + movie + " is now in the " + genre + " genre.")
 
     # return the updated list to the Driver
@@ -177,8 +175,10 @@ def movies_by_genre(user_list):
 
     if genre == "q" or genre == "quit":
         sys.exit()
-    if genre in user_list.values():
-        print("\n" + genre + ":\n")
-        inventlist.keys_by_value(user_list, genre)
     else:
-        print("There are no movies with this genre.")
+        print("\nMovies in the " + genre + " genre:")
+        # list with these movies
+        movies_in_genre = user_list.keys_by_value(genre)
+        movies_in_genre.sort()
+        for movie in movies_in_genre:
+            print(movie)
