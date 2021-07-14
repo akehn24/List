@@ -28,7 +28,7 @@ I use lists frequently in my day-to-day life so I programmed an application that
 :heavy_check_mark: Integrate the linked list into the current Checklist code  
 :heavy_check_mark: Basic Inventory List  
 :heavy_check_mark: Movie / Book Inventory Lists  
-:heavy_check_mark:: Fix TOC Links (woohoo!)  
+:heavy_check_mark: Fix TOC Links (woohoo!)  
 :recycle: Character Sheet Class  
 
 <!--- 
