@@ -1,6 +1,6 @@
 import time
 import sys
-from list_files import inventory_list as inventlist
+from list_files import InventoryList as InventList
 
 ################################################################
 # Book Inventory List
@@ -76,7 +76,7 @@ def book_driver(user_list):
 ######################################
 def create_booklist():
     print("\nLet's create a Book List!\n")
-    user_list = inventlist.create_list()
+    user_list = InventList.InventoryList()
     add_books(user_list)
 
 
@@ -84,25 +84,23 @@ def create_booklist():
 # Book List Printer
 ######################################
 def print_booklist(user_list):
-    if user_list:
-        print("\n")
-        inventlist.print_list(user_list)
-        print("\n")
-        time.sleep(0.5)
-    else:
-        print("You don't currently have a list.")
-        return
+    print("\n")
+    user_list.print_list()
+    print("\n")
+    time.sleep(0.5)
 
 
 ######################################
 # Book Deleter
 ######################################
 def remove_book(user_list):
+    print("\n")
+    print_booklist(user_list)
     print("\nWhich book would you like to remove?")
     book = input()
-    user_list = inventlist.remove_item(user_list, book)
+    user_list.remove_item(book)
     time.sleep(0.5)
-    print("\nRemoved " + book + " from your movie list.")
+    print("\nRemoved " + book + " from your book list.")
 
     # return the updated list to the Driver
     book_driver(user_list)
@@ -117,7 +115,7 @@ def delete_booklist(user_list):
                     "2 - No! Please take me back.\n")
 
     if confirm == "1":
-        inventlist.delete_list(user_list)
+        user_list.delete_list()
         print("\nYour book list has been deleted.")
         time.sleep(0.5)
     elif confirm == "2":
@@ -144,7 +142,7 @@ def add_books(user_list):
         if key_val == "q" or key_val == "quit":
             sys.exit()
         else:
-            user_list = inventlist.add_item(user_list, key_val)
+            user_list.add_item(key_val)
             key_val = input()
 
     # return the updated list to the Driver
@@ -161,7 +159,7 @@ def set_author(user_list):
     print("Which author would you like to assign to this book?")
     author = input()
 
-    user_list = inventlist.set_value(user_list, book, author)
+    user_list.set_value(book, author)
     print("\n" + author + " is now the author of " + book + ".")
 
     # return the updated list to the Driver
@@ -177,8 +175,10 @@ def books_by_author(user_list):
 
     if author == "q" or author == "quit":
         sys.exit()
-    if author in user_list.values():
-        print("\nBooks by " + author + ":\n")
-        inventlist.keys_by_value(user_list, author)
     else:
-        print("There are no books by that author in your list.")
+        print("\nBooks by " + author + ":")
+        # list with these books
+        book_list = user_list.keys_by_value(author)
+        book_list.sort()
+        for book in book_list:
+            print(book)

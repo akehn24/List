@@ -4,14 +4,14 @@
 I use lists frequently in my day-to-day life so I programmed an application that could create the types of lists I want.
 
 ## Table of Contents
-- [Project Status](https://github.com/akehn24/list-maker##project-status)
-   - [Goals](https://github.com/akehn24/list-maker###goals)
-   - [Task List](https://github.com/akehn24/list-maker###task-list)
-   - [Future Tasks](https://github.com/akehn24/list-maker###)
-- [Technologies](https://github.com/akehn24/list-maker##technologies)
-- [Bugs](https://github.com/akehn24/list-maker##bugs)
-- [Demos](https://github.com/akehn24/list-maker##demos)
-- [Sources](https://github.com/akehn24/list-maker##sources)
+- [Project Status](#project-status)
+   - [Goals](#goals)
+   - [Task List](#task-list)
+   - [Future Tasks](#future-tasks)
+- [Technologies](#technologies)
+- [Bugs](#bugs)
+- [Demos](#demos)
+- [Sources](#sources)
 
 ---
 ## Project Status :green_circle:
@@ -84,6 +84,10 @@ BUGGED =    :warning:
 - Pycharm bug - cannot find reference 'function_name' in '-init-.py'
    - There are apparently a few fixes, but putting '# noinspection PyUnresolvedReferences' on the line above the ref tells Pycharm to not worry about it.
    - Had this issue a second time trying to import the linked list. Adding -init-.py files into source code files worked.
+- Dict has no attribute:
+   - Changed Inventory list functions into a Class. Now having issues adding key:value pairs to the dict. Calling the class method 'add_item' throws error:
+      - *AttributeError: 'dict' object has no attribute 'add_item'*
+   - When I converted my methods over to be contained in a Class, I misunderstood how certain assignments and function calls would work. Took some digging through the code to figure out what was going on!
 
 ---
 ## Demos

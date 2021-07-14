@@ -1,6 +1,6 @@
 import time
 import sys
-from list_files import inventory_list as inventlist
+from list_files import InventoryList as InventList
 
 ################################################################
 # Inventory
@@ -73,7 +73,7 @@ def inventory_driver(user_list, name):
 ######################################
 def create_inventory():
     name = input("\nLet's create an Inventory List... What would you like to call it? \n")
-    user_list = inventlist.create_list()
+    user_list = InventList.InventoryList()
     add_items(user_list, name)
 
 
@@ -86,7 +86,7 @@ def print_inventory(user_list, name):
         return
 
     print("\n" + name + ":")
-    inventlist.print_list(user_list)
+    user_list.print_list()
     print("\n")
     time.sleep(0.5)
 
@@ -95,9 +95,10 @@ def print_inventory(user_list, name):
 # Item Deleter
 ######################################
 def remove_item(user_list, name):
-    print("\nWhich item would you like to remove?")
-    item = input()
-    user_list = inventlist.remove_item(user_list, item)
+    print("\n")
+    print_inventory(user_list, name)
+    item = input("\nWhich item would you like to remove?\n")
+    user_list.remove_item(item)
     time.sleep(0.5)
     print("\nRemoved " + item + " from your " + name + " list.")
 
@@ -114,7 +115,7 @@ def delete_list(user_list, name):
                     "2 - No! Please take me back.\n")
 
     if confirm == "1":
-        inventlist.delete_list(user_list)
+        user_list.delete_list()
         print("\nYour list has been deleted.")
         time.sleep(0.5)
     elif confirm == "2":
@@ -144,7 +145,7 @@ def add_items(user_list, name):
         if key_val == "q" or key_val == "quit":
             sys.exit()
         else:
-            user_list = inventlist.add_item(user_list, key_val)
+            user_list.add_item(key_val)
             key_val = input()
 
     # return the updated list to the Driver
@@ -161,7 +162,7 @@ def set_value(user_list, name):
     print("What is the new value you'd like it to have?")
     val = input()
 
-    user_list = inventlist.set_value(user_list, key, val)
+    user_list = user_list.set_value(key, val)
     print("\nThe item " + key + " now has the value " + val + ".")
 
     # return the updated list to the Driver
