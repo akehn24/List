@@ -28,8 +28,8 @@ I use lists frequently in my day-to-day life so I programmed an application that
 :heavy_check_mark: Integrate the linked list into the current Checklist code  
 :heavy_check_mark: Basic Inventory List  
 :heavy_check_mark: Movie / Book Inventory Lists  
+:heavy_check_mark:: Fix TOC Links (woohoo!)  
 :recycle: Character Sheet Class  
-:x::warning: Figure out why TOC links aren't working (I'll do this eventually...)
 
 <!--- 
 Emojis for the Task List:
@@ -41,8 +41,8 @@ BUGGED =    :warning:
 
 ### Future Tasks
 :x: Attempt to create an actual user interface  
-:x: Write list to text file for saving  
-:x: Character Sheet Class (possibly one for DnD and one for gen use)
+:x: Write lists to text files for saving  
+:x: Character Sheet List (possibly one for DnD and one for gen use)
 :x: Categorical List  
 
 ### Feature Creep
@@ -55,13 +55,15 @@ BUGGED =    :warning:
 - Visual Studio Code
 - Pycharm
 - Python
+- Git Bash / GitHub
 
 ## Knowledge Used
 - Object Oriented programming
 - Classes and Objects
-- Python List
+- Python Lists
 - Linked List
 - Python Dictionaries
+- Drivers to direct the flow of the program
 
 ---
 ## Design
@@ -69,11 +71,10 @@ BUGGED =    :warning:
 - Implemented a Linked List Class to handle the data and functionality of the list.
 - A driver file directs the user through list manipulation by using the functionality of the Linked List Class. 
 ### Inventory
-- A general Inventory list file handles the data and functionality of the Inventory drivers.
-- I decided to implement each type of Inventory list driver separately since the UI dialogue would be different for each of them.
-- Planning on implementing a Character Sheet Class and driver separately to handle this specialized type of list.
+- A general Inventory List Class handles the data and functionality of the Inventory drivers.
+- I decided to implement each type of Inventory List driver separately since the user dialogue would be different for each of them.
 ### Categorical
--
+- 
 
 ---
 ## Bugs
@@ -88,7 +89,7 @@ BUGGED =    :warning:
 - Dict has no attribute:
    - Changed Inventory list functions into a Class. Now having issues adding key:value pairs to the dict. Calling the class method 'add_item' throws error:
       - *AttributeError: 'dict' object has no attribute 'add_item'*
-   - When I converted my methods over to be contained in a Class, I misunderstood how certain assignments and function calls would work. Took some digging through the code to figure out what was going on!
+   - When I converted my methods over to be contained in a Class, I misunderstood how certain assignments and function calls would work. Took some digging through the code to figure out what was going on! (and every Inventory driver was affected!)
 
 ---
 ## Demos
